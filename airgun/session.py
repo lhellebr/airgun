@@ -15,6 +15,7 @@ from airgun.entities.login import LoginEntity
 from airgun.entities.activationkey import ActivationKeyEntity
 from airgun.entities.architecture import ArchitectureEntity
 from airgun.entities.contentview import ContentViewEntity
+from airgun.entities.computeresource import ComputeResourceEntity
 from airgun.entities.hostcollection import HostCollectionEntity
 from airgun.entities.lifecycleenvironment import LCEEntity
 from airgun.entities.location import LocationEntity
@@ -205,6 +206,11 @@ class Session(object):
         return ArchitectureEntity(self.browser)
 
     @cached_property
+    def computeresource(self):
+        """Instance of ComputeResource entity."""
+        return ComputeResourceEntity(self.browser)
+
+    @cached_property
     def contentview(self):
         """Instance of Content View entity."""
         return ContentViewEntity(self.browser)
@@ -253,3 +259,4 @@ class Session(object):
     def syncplan(self):
         """Instance of Sync Plan entity."""
         return SyncPlanEntity(self.browser)
+
